@@ -18,14 +18,15 @@ class MediaSize(Enum):
     THUMBNAIL = ((200, 300), 'thumbnail')
 
 
+# for generating four different types of images from an images
 class UploadImage(models.Model):
     # The original image.
-    original = models.ImageField(upload_to='original_pics/', blank=True)
+    original = models.ImageField(upload_to='original/', blank=True)
     # Resized images...
-    large = models.ImageField(upload_to='pictures/', blank=True)
-    medium = models.ImageField(upload_to='pictures/', blank=True)
-    thumbnail = models.ImageField(upload_to='pictures/', blank=True)
-    grayscale = models.ImageField(upload_to='pictures/', blank=True)
+    large = models.ImageField(upload_to='converted/', blank=True)
+    medium = models.ImageField(upload_to='converted/', blank=True)
+    thumbnail = models.ImageField(upload_to='converted/', blank=True)
+    grayscale = models.ImageField(upload_to='converted/', blank=True)
 
     def resizeImg(self, img_size):
         img: Image.Image = Image.open(self.original)

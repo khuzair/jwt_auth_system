@@ -66,10 +66,10 @@ def upload_image(request, pk=None):
         if serializer.is_valid():
             serializer.save()
             return Response({
-                'thumbnail': serializer.data['thumbnail'].split("/")[-1],
-                'midium': serializer.data['medium'].split("/")[-1],
-                'large': serializer.data['large'].split("/")[-1],
-                'grayScale': serializer.data['grayscale'].split("/")[-1]
+                'Thumbnail': serializer.data['thumbnail'].split("/")[-1],
+                'Medium': serializer.data['medium'].split("/")[-1],
+                'Large': serializer.data['large'].split("/")[-1],
+                'GrayScale': serializer.data['grayscale'].split("/")[-1]
             }, status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
